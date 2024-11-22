@@ -1,0 +1,113 @@
+.search {
+    width: 30%;
+    height: 80%;
+    background-color: #ffffff;
+    border-radius: 2rem;
+    border: none;
+    margin: 0 auto;
+}
+
+
+
+/*header*/
+.form {
+    display: flex;
+    align-items: right;
+    margin-left: auto;
+    gap: 0.9375rem;
+    /* 15px = 15/16 */
+    border: none;
+}
+
+.form_item {
+    font-size: 0.875rem;
+    /* 14px = 14/16 */
+    padding: 0 0.4375rem;
+    /* 7px = 7/16 */
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.col {
+    width: 100%;
+    height: auto;
+    margin: 4rem auto;
+}
+
+
+
+
+p {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.address_form {
+    width: 40%;
+    margin: 0 auto;
+    padding-top: 3vh;
+    /* 30px */
+}
+
+
+.form_box {
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+/*ラベル*/
+label {
+    font-size: 0.8rem;
+    height: auto;
+    font-weight: bold;
+}
+
+/*入力欄*/
+.text {
+    width: 100%;
+    height: 2rem;
+    /* 40px */
+    font-size: 0.8125rem;
+    /* 13px */
+    border: 1px solid rgb(113, 105, 105);
+    border-radius: 0.1875rem;
+    /* 3px */
+    background-color: white;
+    padding: 1rem;
+    box-sizing: border-box;
+
+}
+
+
+/* エラーメッセージ */
+.form_error {
+    font-size: 0.75rem;
+    /* 12px */
+    color: #ff0000;
+    width: 100%;
+    height: 20px;
+}
+
+/*会員登録*/
+.button {
+    width: 100%;
+    margin-top: 3rem;
+    /* 20px */
+}
+
+.button-submit {
+    width: 100%;
+    height: 3rem;
+    /* 40px */
+    font-size: 0.8125rem;
+    /* 13px */
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 0.1875rem;
+    /* 3px */
+    cursor: pointer;
+}

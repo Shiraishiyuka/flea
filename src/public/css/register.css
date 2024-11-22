@@ -1,0 +1,95 @@
+.register-content {
+    width: 100%;
+    height: auto;
+    margin-top: 3vh;
+}
+
+
+
+
+p {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+
+.register_form {
+    width: 40%;
+    margin: 0 auto;
+    padding-top: 4vh;
+    /* 30px */
+}
+
+/*ラベル*/
+label {
+    font-size: 0.8rem;
+    height: auto;
+    font-weight: bold;
+}
+
+/*入力欄*/
+.text {
+    width: 100%;
+    height: 2.2rem;
+    /* 40px */
+    font-size: 0.8125rem;
+    /* 13px */
+    border: 1px solid rgb(113, 105, 105);
+    border-radius: 0.1875rem;
+    /* 3px */
+    background-color: white;
+    padding: 1rem;
+    box-sizing: border-box;
+
+}
+
+
+/* エラーメッセージ */
+.form_error {
+    font-size: 0.75rem;
+    /* 12px */
+    color: #ff0000;
+    width: 100%;
+    height: 20px;
+}
+
+/*会員登録*/
+.button {
+    width: 100%;
+    margin-top: 4rem;
+    /* 20px */
+}
+
+.button-submit {
+    width: 100%;
+    height: 3rem;
+    /* 40px */
+    font-size: 0.8125rem;
+    /* 13px */
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 0.1875rem;
+    /* 3px */
+    cursor: pointer;
+}
+
+
+
+
+/*ログイン*/
+.return_button {
+    text-align: center;
+    margin-top: 1.25rem;
+    /* 20px */
+}
+
+.login_button-submit {
+    border: none;
+    color: blue;
+    font-size: 0.8125rem;
+    /* 13px */
+    background: none;
+    cursor: pointer;
+}
