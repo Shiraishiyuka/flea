@@ -6,45 +6,42 @@ use Illuminate\Http\Request;
 
 class FleaController extends Controller
 {
-    public function home() 
-    {
-        return view('home');
-    }
-
+    
     
 
 
 
-        public function mypage(Request $request)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'post_code' => 'required|string|max:10',
-            'address' => 'required|string|max:255',
-            'building' => 'nullable|string|max:255',
-        ]);
+        public function setupProfile(Request $request)
+{
+    $validated = $request->validate([
+        'name' => 'required|string|max:255',
+        'post_code' => 'nullable|string|max:10',
+        'address' => 'nullable|string|max:255',
+        'building' => 'nullable|string|max:255',
+        'profile_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
 
-        $user = Auth::user();
-
-        $user->update([
-            'name' => $request->name,
-            'post_code' => $request->post_code,
-            'address' => $request->address,
-            'building' => $request->building,
-            'profile_complete' => true, // プロフィール完了フラグを更新
-        ]);
-
-
-        return redirect('/home')->with('status', 'プロフィールが更新されました！');
+    $profileImagePath = null;
+    if ($request->hasFile('profile_image')) {
+        $profileImagePath = $request->file('profile_image')->store('profile_images', 'public');
     }
+
+    UserProfile::create([
+        'user_id' => auth()->id(),
+        'name' => $validated['name'],
+        'post_code' => $validated['post_code'],
+        'address' => $validated['address'],
+        'building' => $validated['building'],
+        'profile_image_path' => $profileImagePath,
+    ]);
+
+    return redirect()->route('home'); // ホームページへ
+}
 
     public function address()
     {
         return view('address');
     }
 
-    public function sell()
-    {
-        return view('sell');
-    }
+    
 }

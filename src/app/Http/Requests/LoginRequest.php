@@ -24,7 +24,8 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email',
+            'email' => 'required|email|exists:users,email',  /*usersテーブルのemailカラムにリクエストで送信された値が存在していることを確認するルール  users: 確認対象のテーブル。
+email: 確認対象のカラム。*/
             'password' => 'required',
         ];
     }
@@ -32,9 +33,13 @@ class LoginRequest extends FormRequest
     public function messages()
     {
         return [
-            'email.required' => 'メールアドレスを入力してください',
-            'email.email' => 'メールアドレスは「ユーザー名@ドメイン」形式で入力してください',
+            'email.required' => 'メールアドレスを入力してください。',
+            'email.email' => 'メールアドレスは「ユーザー名@ドメイン」の形式で入力してください。',
+            'email.exists' => 'ログイン情報が登録されていません',
             'password.required' => 'パスワードを入力してください',
         ];
     }
+
+
+
 }

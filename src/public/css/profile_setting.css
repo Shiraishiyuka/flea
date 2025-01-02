@@ -1,0 +1,255 @@
+/* ベーススタイル（デフォルト） */
+.search {
+    width: 30%;
+    height: 80%;
+    background-color: #ffffff;
+    border-radius: 2rem;
+    border: none;
+    margin: 0 auto;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.9375rem;
+    /* 15px */
+    border: none;
+    margin-right: 1rem;
+}
+
+.form_item {
+    font-size: 0.875rem;
+    /* 14px */
+    padding: 0 0.4375rem;
+    /* 7px */
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.mypage_form {
+    width: 40%;
+    margin: 0 auto;
+    padding-top: 3vh;
+}
+
+
+.icon {
+    width: 100%;
+    height: auto;
+    margin-top: 2rem;
+}
+
+/* アイコン画像 */
+.icon-image {
+    width: 50%;
+    height: auto;
+    margin-left: 24rem;
+    margin-top: 2rem;
+        display: flex;
+            align-items: center;
+}
+
+.image-preview {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    /* 正円にする */
+    overflow: hidden;
+    /* 内部のコンテンツを枠内に制限 */
+    background-color: #f9f9f9;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-preview_icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* 画像を枠にフィット */
+}
+
+/* アップロード前のデフォルト文字を隠す */
+.image-preview::before {
+    width: 100%;
+    height: 100%;
+    /* 背景色 */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+/* ファイル選択ボタンのカスタマイズ */
+#profile-image-input {
+    display: none;
+    /* 元のファイル選択ボタンを非表示にする */
+}
+
+/* カスタムファイル選択ボタン */
+.back {
+    display: inline-block;
+    padding: 10px 20px;
+    color: red;
+    border: 1px;
+    border-radius: 1px;
+    font-size: 14px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+
+
+
+
+/* 入力欄とエラーメッセージ */
+.col {
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+label {
+    font-size: 0.8rem;
+    height: auto;
+    font-weight: bold;
+    display: block;
+}
+
+.text {
+    width: 100%;
+    height: 2,3rem;
+    font-size: 0.8125rem;
+    /* 13px */
+    border: 1px solid rgb(113, 105, 105);
+    border-radius: 0.1875rem;
+    /* 3px */
+    background-color: white;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.form_error {
+    font-size: 0.75rem;
+    /* 12px */
+    color: #ff0000;
+    margin-bottom: 1.3rem;
+}
+
+/* 更新ボタン */
+.button {
+    width: 100%;
+    margin-top: 2.3rem;
+    text-align: center;
+}
+
+.button-submit {
+    width: 40%;
+    height: 3rem;
+    font-size: 0.8125rem;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 0.1875rem;
+    /* 3px */
+    cursor: pointer;
+    margin: o auto;
+}
+
+/* 見出し */
+p {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* レスポンシブ対応 */
+/* タブレット (768px～850px) */
+@media screen and (max-width: 850px) and (min-width: 768px) {
+
+    .profile_setting {
+        width: 100%;
+        height: auto;
+    }
+
+    .mypage_form {
+        width: 70%;
+        padding-top: 3vh;
+    }
+
+    .form {
+        justify-content: center;
+        margin-right: 0;
+    }
+
+    .image-preview {
+        width: 100px;
+        height: 100px;
+    }
+
+    .button-submit {
+        font-size: 0.9rem;
+    }
+}
+
+/* スマホ (768px以下) */
+@media screen and (max-width: 768px) {
+
+    .icon {
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+
+
+    .form {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+        margin: 0;
+    }
+
+    .form_item {
+        font-size: 0.8rem;
+    }
+
+    .image-preview {
+        width: 80px;
+        height: 80px;
+    }
+
+    .button-submit {
+        font-size: 0.8rem;
+    }
+}
+
+/* PC最小幅 (1400px未満の場合) */
+@media screen and (max-width: 1400px) {
+
+    .profile_setting {
+            width: 100%;
+            height: auto;
+        }
+
+
+
+
+    .image-preview {
+        width: 100px;
+        height: 100px;
+    }
+
+    .button-submit {
+        font-size: 1rem;
+    }
+}
+
+
+

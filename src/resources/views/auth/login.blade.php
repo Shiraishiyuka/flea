@@ -5,49 +5,41 @@
 @endsection
 
 @section('content')
-
-    
-    <form class="login_form" action="{{ route('login.show') }}" method="post">
-        @csrf
-
-        <p>ログイン</p>
+<form class="login_form" action="{{ route('login') }}" method="post">
+    @csrf
+    <h1 class="login-title">ログイン</h1>
     <div class="login-content">
-    <div class="col">
-    <label>ユーザー名/メールアドレス<input type="email"  class="text" name="email" value="{{ old('email') }}" /></label>
-    <div class="form_error">
-        @error('email')
-            {{ $message }}
+        <!-- ユーザー名/メールアドレス -->
+        <div class="form-group">
+            <label>ユーザー名/メールアドレス
+                <input type="email" class="text" name="email" value="{{ old('email') }}" />
+            </label>
+            @error('email')
+            <div class="form_error">{{ $message }}</div>
             @enderror
-    </div>
-</div>
-
-    <label>パスワード<input type="password"  class="text" name="password"></label> 
-    <div class="form_error">
-        @error('password')
-            {{ $message }}
-            @enderror
-    </div>
-
-
-    
-</div>
-<div class="button">
-        <button class="button-submit">ログインする</button>
-    </div>
-
-    </form>
-
-<div class="return_button">
-    <form action="{{ route('register') }}" method="get">
-        <div class="register_button">
-            <button class="register_button-submit" type="submit">会員登録はこちら</button>
         </div>
 
+        <!-- パスワード -->
+        <div class="form-group">
+            <label>パスワード
+                <input type="password" class="text" name="password">
+            </label>
+            @error('password')
+            <div class="form_error">{{ $message }}</div>
+            @enderror
+        </div>
+    </div>
 
+    <!-- ログインボタン -->
+    <div class="button">
+        <button class="button-submit">ログインする</button>
+    </div>
+</form>
 
-
-
-
+<!-- 会員登録リンク -->
+<div class="return_button">
+    <form action="{{ route('register') }}" method="get">
+        <button class="register_button-submit" type="submit">会員登録はこちら</button>
+    </form>
+</div>
 @endsection
-
-

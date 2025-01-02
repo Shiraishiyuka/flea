@@ -1,49 +1,127 @@
-.search {
-    width: 30%;
-    height: 80%;
-    background-color: #ffffff;
-    border-radius: 2rem;
-    border: none;
-    margin: 0 auto;
+
+
+/* ラジオボタンを非表示にするが、checked状態を確実に反映させる */
+.category-box input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    /* 非表示にする */
+}
+
+/* 選択された場合のデザイン */
+.category-box input[type="radio"]:checked+span {
+    background-color: red;
+    color: white;
+    border-color: red;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.text:focus {
+    border-color: red;
+    outline: none;
+}
+
+.text:hover {
+    border-color: gray;
 }
 
 
-
-/*header*/
-.form {
-    display: flex;
-    align-items: right;
-    margin-left: auto;
-    gap: 0.9375rem;
-    /* 15px = 15/16 */
-    border: none;
-}
-
-.form_item {
-    font-size: 0.875rem;
-    /* 14px = 14/16 */
-    padding: 0 0.4375rem;
-    /* 7px = 7/16 */
-    border: none;
-    background: none;
-    cursor: pointer;
-    color: #ffffff;
-}
 
 .col {
     width: 100%;
     height: auto;
-    margin: 4rem auto;
+    margin-top: 2rem;
 }
 
+/* 画像選択部分のデザイン */
 .image_upload {
     width: 100%;
-    height: 120px;
-    border: dotted 2px #000000;
-    border-radius: 3px;
-    display:flex;
+    height: 100px;
+    border: 1px solid #000000;
+    /* 線を破線に */
+    border-radius: 5px;
+    /* 角丸にする */
+    display: flex;
     justify-content: center;
+    /* 横方向中央揃え */
+    align-items: center;
+    /* 縦方向中央揃え */
+    position: relative;
+
+    /* 背景色を少し淡い色に */
 }
+
+
+.image_upload input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+
+.image_upload .inner_text {
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    z-index: 1;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    color: #e01e1e;
+    pointer-events: none;
+    border: 1px solid #ff4848;
+        /* テキストの枠線 */
+        border-radius: 5px;
+        /* テキストの枠を角丸に */
+        background-color: #ffffff;
+        /* 背景を白色に */
+}
+
+
+.category-box input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* 楕円形のデザイン */
+.category-box {
+    .category-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid red;
+            border-radius: 25px;
+            /* 楕円形 */
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: red;
+            background-color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            /* スムーズな変化 */
+        }
+}
+
+/* チェックされたときのデザイン */
+.category-box input[type="checkbox"]:checked+span {
+    background-color: red;
+    color: white;
+    border-color: red;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ホバー時のエフェクト */
+.category-box:hover {
+    background-color: #f9f9f9;
+}
+
+/* ホバー時に楕円の境界色を変更 */
+.category-box:hover span {
+    color: red;
+}
+
 
 
 
@@ -53,13 +131,29 @@
     display: flex;
         gap: 10px;
         flex-wrap: wrap;
-        justify-content: center;
         margin: 20px 0;
 }
 
-/* ラジオボタンを非表示にする */
+
+
+
+/*ユーザー編集ページボタン*/
+.inner_text {
+    width: 250px;
+    height: 40px;
+    border-color: red;
+    font-size: 20px;
+    font-weight: 200;
+    border-radius: 0.5rem;
+
+}
+
+/* カテゴリーのラジオボタンを非表示にするが選択状態を維持 */
 .category-box input[type="radio"] {
-    display: none;
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
 /* 楕円形のスタイリング */
@@ -76,17 +170,19 @@
     cursor: pointer;
 }
 
-/* 選択時のスタイル */
+/* 選択時のデザイン */
 .category-box input[type="radio"]:checked+span {
     background-color: red;
     color: white;
     border-color: red;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ホバー時のスタイル */
-.category-box:hover {
-    background-color: #e0e0e0;
+/* カテゴリーボックス全体のホバー効果 */
+.category-box:hover span {
+    background-color: #f5f5f5;
 }
+
 
 p {
     text-align: center;
@@ -104,14 +200,42 @@ p {
 
 .form_box {
     width: 100%;
-    margin-bottom: 3rem;
+
 }
+
+/*線の部分*/
+.select-text {
+    width: 100%;
+    border: 1px;
+    font-size: 20px;
+    font-weight: bold;
+        color: gray;
+        margin-top: 1rem;
+        margin-bottom: 3rem;
+        position: relative;
+}
+
+/* 下線のスタイル */
+.select-text::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    /* テキストからの距離 */
+    width: 100%;
+    height: 2px;
+    /* 線の太さ */
+    background-color:  gray;
+    /* 線の色 */
+}
+
 
 /*ラベル*/
 label {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
     height: auto;
     font-weight: bold;
+    
 }
 
 /*入力欄*/
@@ -127,7 +251,53 @@ label {
     background-color: white;
     padding: 1rem;
     box-sizing: border-box;
+}
 
+.text:focus {
+    border-color: red;
+    outline: none;
+}
+
+.text:hover {
+    border-color: gray;
+}
+
+/* セレクトボックスのオプション文字色 */
+.text option {
+    color: #000;
+    background-color: #fff;
+}
+
+
+.noo {
+    width: 100%;
+    height: 2.5rem;
+    /* 高さを調整 */
+    font-size: 0.875rem;
+    /* フォントサイズを微調整 */
+    border: 1px solid rgb(113, 105, 105);
+    /* 枠線の設定 */
+    border-radius: 0.25rem;
+    /* 角を丸くする */
+    padding: 0 0.5rem;
+    /* 左右の余白を調整 */
+    color: #000;
+    box-sizing: border-box;
+    /* ボックスサイズを調整 */
+}
+
+.textarea {
+    width: 100%;
+        height: 5rem;
+        /* 40px */
+        font-size: 0.8125rem;
+        /* 13px */
+        border: 1px solid rgb(113, 105, 105);
+        border-radius: 0.1875rem;
+        /* 3px */
+        background-color: white;
+        padding: 1rem;
+        box-sizing: border-box;
 }
 
 
@@ -143,7 +313,7 @@ label {
 /*会員登録*/
 .button {
     width: 100%;
-    margin-top: 3rem;
+    margin-top: 2rem;
     /* 20px */
 }
 
@@ -159,4 +329,54 @@ label {
     border-radius: 0.1875rem;
     /* 3px */
     cursor: pointer;
+}
+
+
+/* タブレット対応 (768px～850px) */
+@media screen and (max-width: 850px) and (min-width: 768px) {
+    .sell_form {
+            width: 50%;
+            margin: 0 auto;
+            padding-top: 3vh;
+        }
+    
+        .inner_text {
+            width: 60%;
+            font-size: 10%;
+        }
+}
+
+
+
+/* スマホ対応 (768px以下) */
+@media screen and (max-width: 768px) {
+    .sell_form{
+        width: 50%;
+            margin: 0 auto;
+            padding-top: 3vh;
+    }
+
+    .inner_text {
+        width: 60%;
+        font-size: 10%;
+    }
+}
+
+
+
+/* PCの最小幅対応 (1400px未満の場合) */
+@media screen and (max-width: 1400px) {
+    
+}
+
+/* PCの最大幅対応 (1400px～1540px) */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+    .items {
+        width: 80%;
+        gap: 30px;
+    }
+
+    .box {
+        width: 23%;
+    }
 }

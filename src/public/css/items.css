@@ -1,0 +1,133 @@
+/* 共通スタイル */
+.search {
+    width: 30%;
+    height: 80%;
+    background-color: #ffffff;
+    border-radius: 2rem;
+    border: none;
+    margin: 0 auto;
+}
+
+/* 商品詳細ページ */
+.product-page {
+    width: 90%;
+    margin: 5% auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.items-text {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 商品画像 */
+.item_box {
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+.product-image {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* アイコン設定 */
+.icon-space {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+.icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.icon-container,
+.like-icon {
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+}
+
+/* ボタン */
+.purchase-button,
+.comment-bottom {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.purchase,
+.comment {
+    width: 100%;
+    height: 3rem;
+    font-size: 1.3rem;
+    background-color: #FF5555;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 0.1875rem;
+    cursor: pointer;
+}
+
+/* 商品説明 */
+.product-name {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.description,
+.condition {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.price-container {
+    margin: 1rem 0;
+}
+
+.product-price {
+    font-size: 25px;
+    font-weight: 200;
+}
+
+/* コメント */
+.comment-space {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.comment-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.user-comment {
+    display: flex;
+    word-break: break-word;
+    flex-wrap: wrap;
+}
+
+.comment-textarea {
+    width: 100%;
+    height: 100px;
+}
+/* メディアクエリ */
+/* スマホ対応 */
+@media screen and (max-width: 768px) {
+    .product-page {
+        flex-direction: column;
+    }
+
+    .product-name {
+        font-size: 20px;
+    }
+}

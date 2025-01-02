@@ -1,0 +1,266 @@
+
+
+
+/*購入フォーム*/
+.purchase-form {
+    margin: 30px auto;
+    width: 90%;
+    height: auto;
+    display: flex;
+}
+
+.Purchased-products {
+    width: 60%;
+    height: 100%;
+    margin-right: 5%;
+    display: flex;
+        float: right;
+        flex-direction: column;
+}
+
+.product-information {
+    width: 30%;
+    margin: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-name {
+    font-size: 25px;
+    font-weight:bold;
+}
+
+.product-price {
+    font-size: 25px;
+        font-weight: 200;
+}
+
+.items {
+    width: 100%;
+    display: flex;
+    float: left;
+    height: 200px;
+    /*デフォルトの線と設定を消す*/
+        border: none;
+        outline: none;
+        border-bottom: 0.5px solid black;
+        /* 下線のみ指定 */
+}
+
+.payment {
+    width: 100%;
+    height: 150px;
+    /*デフォルトの線と設定を消す*/
+        border: none;
+        outline: none;
+        border-bottom: 0.5px solid black;
+        /* 下線のみ指定 */
+    display: flex;
+    flex-direction: column;
+}
+
+.text {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.payment-form {
+    width:100%;
+    margin: 3.5rem 0;
+}
+.payment-method {
+    width: 180px;
+    margin-left: 70px;
+}
+
+.address-form {
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px;
+        display: flex;
+        justify-content: space-between;
+}
+
+
+.address-box {
+    height: 170px;
+    /*デフォルトの線と設定を消す*/
+    border: none;
+    outline: none;
+    border-bottom: 0.5px solid black;
+        /* 下線のみ指定 */
+}
+
+.form-text {
+    height: 60px;
+    margin-left: 40px;
+    margin-top: 12px;
+    display: flex;
+        flex-direction: column;
+}
+.address {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+.product-image {
+    width: 20%;
+    object-fit: contain;
+        /* 縦横比を保ちつつ全体を収める */
+}
+
+
+.Purchase-information {
+    width: 40%;
+    height: 350px;
+    margin-top: 2rem;
+}
+
+.product-table {
+    width: 100%;
+    height: auto;
+}
+
+
+.flex-box {
+    width: 90%;
+    height: 150px;
+    margin: 0 auto;
+    border: 1px solid black;
+    display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+            /* ボックスを均等配置 */
+            
+            /* 横一本線 */
+}
+
+.box {
+    width: 45%;
+    height: 50%;
+    border-top: 1px solid black;
+        /* ボックスの境界線 */
+    border: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+        /* 縦方向中央揃え */
+}
+
+.flex-box::after {
+    content: "";
+    /* 視覚的な線用の要素 */
+    position: absolute;
+    top: 50%;
+    /* 縦中央に配置 */
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: black;
+    /* 線の色 */
+    z-index: -1;
+    /* テキストの後ろに配置 */
+}
+
+
+/* ボタン */
+.purchase-button {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 4rem;
+}
+
+.purchase {
+    width: 100%;
+    height: 3rem;
+    font-size: 1.3rem;
+    background-color: #FF5555;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 0.1875rem;
+    cursor: pointer;
+}
+
+
+.address-back {
+    font-size: 0.875rem;
+        /* 14px = 14/16 */
+        padding: 0 0.4375rem;
+        /* 7px = 7/16 */
+        border: none;
+        background: none;
+        cursor: pointer;
+        color: #ffffff;
+}
+
+
+/* レスポンシブ対応 */
+
+/* タブレット対応 (768px～850px) */
+@media screen and (min-width: 768px) and (max-width: 850px) {
+    .purchase-form {
+        flex-direction: column;
+        /* 縦並びに */
+        gap: 1.5rem;
+    }
+
+    .Purchased-products,
+    .Purchase-information {
+        width: 100%;
+        /* 幅を全体に調整 */
+    }
+
+    .product-image {
+        width: 50%;
+        /* 幅を調整 */
+        margin: 0 auto;
+        /* 中央揃え */
+    }
+
+    .text {
+        font-size: 1.125rem;
+        /* フォントサイズ調整 */
+    }
+
+    .payment-method {
+        width: 90%;
+        /* 入力幅を広げる */
+        margin: 0 auto;
+    }
+
+    .flex-box {
+        width: 100%;
+    }
+
+    .box {
+        width: 48%;
+        /* 横2列 */
+    }
+}
+
+/* PC (1400px～1540px) */
+@media screen and (min-width: 1400px) and (max-width: 1540px) {
+    .purchase-form {
+        width: 80%;
+        /* 幅を縮小して中央寄せ */
+    }
+
+    .product-information {
+        width: 40%;
+        /* 情報エリアを広げる */
+    }
+
+    .product-image {
+        width: 25%;
+        /* 画像のサイズを調整 */
+    }
+
+    .flex-box {
+        gap: 1.5rem;
+        /* ボックス間の間隔を広げる */
+    }
+}

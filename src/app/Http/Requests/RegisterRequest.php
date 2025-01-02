@@ -44,9 +44,41 @@ public function messages()
         'password.required' => 'パスワードを入力してください。',
         'password.string' => 'パスワードは文字列で入力してください。',
         'password.min' => 'パスワードは8文字以上で入力してください。',
-        'password.confirmed' => 'パスワードが一致しません。',
+        'password.confirmed' => 'パスワードと一致しません。',
         'password_confirmation.required' => '確認用パスワードを入力してください。',
         'password_confirmation.string' => '確認用パスワードは文字列で入力してください。',
     ];
 }
 }
+
+
+/*'email' => 'required|email|unique:users,email', // 必須、正しい形式、users テーブルで一意
+指定された値がデータベースに既に存在しないことを確認
+新規登録時に、同じメールアドレスが登録されていないか確認する用途に使われる。
+構文: unique:<テーブル名>,<カラム名>
+users: 対象テーブル。
+email: 対象カラム。
+
+exists: 指定された値がテーブルに存在することを確認。
+unique: 指定された値がテーブルに存在しないことを確認。
+
+使い分け:
+ログイン時: exists:users,email（存在するか確認）
+新規登録時: unique:users,email（重複していないか確認）
+
+更新時の重複確認（現在のデータを除外する場合）:
+'email' => 'unique:users,email,' . $user->id,
+
+confirmed：
+バリデーションルールconfirmedは、入力された値が「対応する確認用フィールド」と一致していることを確認する。
+対応するフィールド名は「元のフィールド名 + _confirmation」という名前である必要がある。
+
+例: passwordフィールドの場合、対応する確認フィールドはpassword_confirmation。
+'password' => 'required|string|min:8|confirmed',
+このルールは以下をチェックします:
+passwordが8文字以上。
+passwordとpassword_confirmationが一致。
+
+フォーム名
+<input type="password" name="password">
+<input type="password" name="password_confirmation"> */
