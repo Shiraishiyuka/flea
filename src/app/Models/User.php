@@ -3,20 +3,25 @@
 namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory; /*ファクトリ機能*/
-use Illuminate\Foundation\Auth\User as Authenticatable; /*ユーザー認証に必要 */
-use Illuminate\Notifications\Notifiable;  /*メール通知を利用する際に必要 */
-use Laravel\Sanctum\HasApiTokens; /*Laravel Sanctum を使用した API 認証に必要*/
+use Illuminate\Database\Eloquent\Factories\HasFactory; 
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;  
+use Laravel\Sanctum\HasApiTokens; 
 
 class User extends Authenticatable
 {
     use HasFactory;
 
+    protected $casts = [
+    'two_factor_expires_at' => 'datetime',
+    ];
+
+
     protected $fillable = [
         'name',
         'email',
         'password',
-        'auth_token', // 新しいカラムを追加
+        'auth_token',
 
     ];
 
@@ -27,31 +32,31 @@ class User extends Authenticatable
     }
 
     public function products()
-{
+    {
     return $this->hasMany(Product::class);
-}
+    }
 
- // Address リレーション
+    // Address リレーション
     public function addresses()
-{
+    {
     return $this->hasMany(Address::class);
-}
+    }
 
     public function up()
-{
+    {
     Schema::table('users', function (Blueprint $table) {
         $table->string('auth_token')->nullable()->after('password');
     });
-}
+    }
 
 
 
-public function down()
-{
+    public function down()
+    {
     Schema::table('users', function (Blueprint $table) {
         $table->dropColumn('auth_token');
     });
-}
+    }
 
 
 

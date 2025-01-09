@@ -51,16 +51,16 @@
             </div>
         </div>
 
-        <form action="{{ $product->address ? '#' : route('purchase', ['id' => $product->id]) }}" method="get">
-            @csrf
-            <div class="purchase-button">
-                @if ($product->address)
-                    <button class="purchase" disabled>売り切れ</button>
-                @else
-                    <button class="purchase">購入手続きへ</button>
-                @endif
-            </div>
-        </form>
+<form action="{{ route('purchase', ['id' => $product->id]) }}" method="get">
+    @csrf
+    <div class="purchase-button">
+        @if ($product->address)
+            <button class="purchase" disabled>売り切れ</button>
+        @else
+            <button class="purchase">購入手続きへ</button>
+        @endif
+    </div>
+</form>
 
         <label class="description">商品説明</label>
         <label class="product-description">{{ $product->description }}</label>

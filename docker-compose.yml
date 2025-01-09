@@ -1,6 +1,14 @@
 version: '3.8'
 
 services:
+    mailhog:
+        image: mailhog/mailhog
+        ports:
+        - "1025:1025"
+        - "8025:8025"
+        networks:
+            - app-network
+
     nginx:
         image: nginx:1.21.1
         ports:
@@ -10,11 +18,21 @@ services:
             - ./src:/var/www/
         depends_on:
             - php
+        networks:
+            - app-network
 
     php:
         build: ./docker/php
         volumes:
             - ./src:/var/www/
+        networks:
+            - app-network
+        depends_on:
+            - mysql
+            - mailhog
+        environment:
+            - PHP_MEMORY_LIMIT=512M
+        
 
     mysql:
         image: mysql:8.0.26
@@ -28,6 +46,8 @@ services:
         volumes:
             - ./docker/mysql/data:/var/lib/mysql
             - ./docker/mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+        networks:
+            - app-network
 
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
@@ -40,3 +60,9 @@ services:
             - mysql
         ports:
             - 8080:80
+        networks:
+            - app-network
+
+networks:
+    app-network:
+        driver: bridge

@@ -14,11 +14,9 @@
 <!-- タブ切り替え部分 -->
 <div class="text">
     <div class="text_inner">
-        <a href="{{ route('home_route') }}" 
-           class="tab {{ $tab ?? '' === 'recommend' ? 'active' : '' }}">おすすめ</a>
-        <a href="{{ route('home_mylist') }}" 
-           class="tab {{ $tab ?? '' === 'mylist' ? 'active' : '' }}">マイリスト</a>
-    </div>
+    <a href="{{ route('home_route', ['tab' => 'recommend', 'search' => request('search')]) }}" class="tab {{ $tab === 'recommend' ? 'active' : '' }}">おすすめ</a>
+    <a href="{{ route('home_mylist', ['tab' => 'mylist', 'search' => request('search')]) }}" class="tab {{ $tab === 'mylist' ? 'active' : '' }}">マイリスト</a>
+</div>
 </div>
 
 <!-- 商品一覧部分 -->

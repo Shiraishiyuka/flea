@@ -15,12 +15,12 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id'); // ユーザーごとに1つの住所
+            $table->unsignedBigInteger('user_id');
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            $table->string('post_code', 10)->nullable();; // 郵便番号
-            $table->string('address', 255)->nullable();; // 住所
-            $table->string('building', 255)->nullable(); // 建物名（オプション）
-            $table->enum('payment_method', ['コンビニ払い', 'カード払い']); // 支払い方法をenum型で設定
+            $table->string('post_code', 10)->nullable();;
+            $table->string('address', 255)->nullable();;
+            $table->string('building', 255)->nullable();
+            $table->enum('payment_method', ['コンビニ払い', 'カード払い']);
             $table->timestamps();
 
             // 外部キー制約

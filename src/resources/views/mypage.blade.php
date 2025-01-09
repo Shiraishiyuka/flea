@@ -19,10 +19,7 @@
         <div class="user">
             <div class="icon-image">
                 <div class="image-preview">
-                    <img src="{{ asset($userprofile && $userprofile->profile_image_path 
-                        ? 'storage/' . $userprofile->profile_image_path 
-                        : 'default.png') }}" 
-                        alt="アイコン画像" class="image-preview_icon">
+                    <img src="{{ asset('storage/' . $userprofile->profile_image_path) }}" alt="" class="image-preview_icon">
                 </div>
             </div>
             <label class="user-name">{{ $userprofile->name }}</label>

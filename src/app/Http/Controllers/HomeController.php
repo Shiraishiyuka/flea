@@ -12,7 +12,7 @@ class HomeController extends BaseController
 {
     public function home(Request $request) 
     {
-// リダイレクト処理を呼び出し
+        // リダイレクト処理を呼び出し
         $redirect = $this->handleRedirects($request);
         if ($redirect) {
             return $redirect;
@@ -30,11 +30,9 @@ class HomeController extends BaseController
 
     public function mylist(Request $request)
     {
-        // マイリスト専用のタブ設定
         $request->merge(['tab' => 'mylist']);
-        return $this->home($request); // 共通のhomeメソッドを利用
+        return $this->home($request);
     }
-
 }
 
 

@@ -26,35 +26,43 @@
 
 
 <div class="payment">
-    <form action="{{ route('purchase', ['id' => $product->id]) }}" method="post">
+
         @csrf
     <span class="text">支払い方法</span>
         <select name="payment_method_display" id="payment-method" class="payment-method" required>
         <option value="コンビニ払い">コンビニ払い</option>
         <option value="カード払い">カード払い</option>
     </select>
-</form>
+
 
 </div>
 
-    <div class="address-box">
-        <div class="address-form">
+<div class="address-box">
+    <div class="address-form">
             <span class="text">配送先</span>
-             <form action="{{ route('address.edit', ['product_id' => $product->id]) }}" method="get">
+<form action="{{ route('edit', ['product_id' => $product->id]) }}" method="get">
             @csrf
             <button type="submit" class="address-back" name="address">変更する</button>
+
+    </div>
+    
+<div class="form-text">
+    @if ($address)
+        <span class="address">郵便番号: {{ $address->post_code }}</span>
+        <span class="address">住所: {{ $address->address }}</span>
+        <span class="address">建物名: {{ $address->building }}</span>
+    @else
+        <span class="address">郵便番号: {{ $userprofile->post_code }}</span>
+        <span class="address">住所: {{ $userprofile->address }}</span>
+        <span class="address">建物名: {{ $userprofile->building }}</span>
+    @endif
+</div>
+
+    </div>
 </form>
-    </div>
-    <div class="form-text">
-    <span class="address">{{ $address->post_code }}</span>
-    <span class="address">{{ $address->address }}</span>
-    <span class="address">{{ $address->building }}</span>
-    </div>
-
-    </div>
-
 
 </div>
+
 
 <div class="Purchase-information">
     <div class="flex-box">
@@ -64,10 +72,13 @@
         <div class="box" id="selected-payment-method">コンビニ払い</div>
     </div>
 
+    <form action="{{ route('purchase', ['id' => $product->id]) }}" method="post">
+        @csrf
         <input type="hidden" id="payment-method-hidden" name="payment_method" value="コンビニ払い">
     <div class="purchase-button">
         <input type="hidden" name="product_id" value="{{ $product->id }}">
         <button type="submit" class="purchase" name="post">購入する</button>
+        </form>
 
 
     </div>

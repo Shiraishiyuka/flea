@@ -1,8 +1,10 @@
 
 
 <div class="search">
-    <form action="{{ route('home_route') }}" method="GET">
-        <input type="text" name="search" class="search-input" placeholder="なにをお探しですか？" value="{{ $searchQuery ?? '' }}">
+    <form action="{{ url()->current() }}" method="GET" id="search-form">
+        <input type="text" name="search" class="search-input" placeholder="なにをお探しですか？" 
+               value="{{ session('searchQuery', '') }}" 
+               oninput="document.getElementById('search-form').submit();">
     </form>
 </div>
 

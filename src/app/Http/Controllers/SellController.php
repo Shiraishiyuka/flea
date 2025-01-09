@@ -18,7 +18,7 @@ class SellController extends BaseController
     }
 
     public function store(SellRequest $request)
-{
+    {
     // 画像のアップロード
     if ($request->hasFile('image')) {
         $path = $request->file('image')->store('images', 'public');
@@ -46,5 +46,5 @@ class SellController extends BaseController
 
     // ホーム画面にリダイレクト
     return redirect()->route('home_route')->with('success', '商品が出品されました！');
-}
+    }
 }
